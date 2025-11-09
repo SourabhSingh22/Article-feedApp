@@ -4,7 +4,7 @@ const articleSchema = new mongoose.Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
   summary: { type: String, required: true },
-});
+}, { timestamps: true }); // <-- adds createdAt and updatedAt
 
-const Article = mongoose.model("Article", articleSchema);
-export default Article;
+export default mongoose.model("Article", articleSchema);
+

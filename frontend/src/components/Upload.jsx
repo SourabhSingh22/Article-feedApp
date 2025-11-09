@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaArrowLeft } from "react-icons/fa6";
 
 export default function Upload() {
   const [articles, setArticles] = useState([{ title: "", content: "" }]);
@@ -36,11 +37,20 @@ export default function Upload() {
     }
   };
 
+  const handleBack = () => {
+    window.history.back();
+  }
+
   return (
     <div className="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-700">
-        Upload Articles (max 10)
-      </h2>
+
+      <div className="flex items-center  gap-4 ">
+        <p onClick={handleBack} className="text-gray-700 font-semibold text-2xl mb-3 cursor-pointer"><FaArrowLeft/></p>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-700">
+          Upload Articles (max 10)
+        </h2>
+      </div>
+
 
       {articles.map((article, index) => (
         <div key={index} className="mb-4">
@@ -50,6 +60,7 @@ export default function Upload() {
             value={article.title}
             onChange={(e) => handleChange(index, "title", e.target.value)}
             className="border p-2 w-full rounded mb-2"
+            required
           />
           <textarea
             placeholder="Enter Content"
@@ -57,6 +68,7 @@ export default function Upload() {
             value={article.content}
             onChange={(e) => handleChange(index, "content", e.target.value)}
             className="border p-2 w-full rounded"
+            required
           />
         </div>
       ))}
