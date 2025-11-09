@@ -22,7 +22,7 @@ export default function Upload() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/articles", {
+      const res = await fetch("https://article-feed-app-eight.vercel.app/api/articles", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ articles }),
