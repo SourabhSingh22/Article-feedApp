@@ -9,7 +9,7 @@ export default function Feed() {
 
   const fetchFeeds = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/articles/feeds");
+      const res = await fetch("https://article-feed-app-eight.vercel.app/api/articles/feeds");
       const data = await res.json();
       setFeeds(data);
     } catch (error) {
@@ -23,7 +23,7 @@ export default function Feed() {
 
   const handleDeleteFeed = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/articles/feeds/${id}`, {
+      const res = await fetch(`https://article-feed-app-eight.vercel.app/api/articles/feeds/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
